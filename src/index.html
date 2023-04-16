@@ -1,11 +1,165 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>ConstituencyInfo</title>
+  <title>대한민국 선거 투표소(South Korea Election Voting Station)</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,upgrade-insecure-requests" http-equiv="Content-Security-Policy">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    @media only screen and (max-width: 768px) {
+      .container {
+        width: 100%;
+      }
+
+      .search-form {
+        padding: 16px;
+      }
+
+      .result-container {
+        padding: 16px;
+      }
+
+      select {
+        width: 100%;
+      }
+
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+      }
+    }
+    /*html, body {*/
+    /*  height: 100%;*/
+    /*}*/
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 80%;
+    }
+
+    .apple-look {
+      font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      color: #333;
+    }
+    .apple-look h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .apple-look input[type="checkbox"] + label {
+      font-size: 16px;
+    }
+    .apple-look button {
+      background-color: #0070c9;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .apple-look button:hover {
+      background-color: #0058a1;
+    }
+    .apple-look table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .apple-look th {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+    .apple-look td {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+    .apple-look tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Style 1 */
+    .pagination-style-1 button {
+      background-color: #0070c9;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 2px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .pagination-style-1 button:hover {
+      background-color: #005999;
+    }
+
+    /* Style 2 */
+    .pagination-style-2 button {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      margin: 0 2px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .pagination-style-2 button:hover {
+      background-color: #ddd;
+    }
+
+    /* Style 3 */
+    .pagination-style-3 button {
+      background-color: transparent;
+      border: none;
+      padding: 6px 12px;
+      margin: 0 2px;
+      cursor: pointer;
+      transition: color 0.3s;
+      color: #0070c9;
+    }
+
+    .pagination-style-3 button:hover {
+      color: #005999;
+    }
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      text-align: center;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #0070c9;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    select {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media only screen and (max-width: 768px) {
+      select {
+        max-height: 200px;
+      }
+    }
+    .select-height-fix {
+      height: 70px !important; /* 높이를 원하는 값으로 조절하세요 */
+    }
+  </style>
+  <base href="/southkoreaelectionvotingstation-page/">
 </head>
 <body>
   <app-root></app-root>

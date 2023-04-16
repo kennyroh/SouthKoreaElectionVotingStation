@@ -1,0 +1,22 @@
+<!-- Filename: election-day-voting-stations.component.html -->
+<table class="apple-look">
+  <thead>
+  <tr>
+    <th>투표소 명</th>
+    <th>주소</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let station of stations; let i = index">
+    <td>{{ station.placeName }}</td>
+    <td>{{ station.addr }} {{ station.floor }}</td>
+    <td><button (click)="copyToClipboard(station.addr + ' ' + station.floor, i)">{{ copied[i] ? '복사됨' : '주소 복사' }}</button></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <button *ngFor="let page of electionDayVotingStationPageList" (click)="onElectionDayVotingStationGoToPage(page)"> {{page}} </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

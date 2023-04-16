@@ -1,0 +1,56 @@
+<!--/* Filename: search-page.component.html */-->
+<div class="container">
+  <div class="search-form apple-look">
+    <h2>대한민국 선거 투표소 정보 조회</h2>
+    <nav>
+      <ul>
+        <li>
+          <input type="checkbox" id="earlyVotingStationCheckbox" [defaultChecked]="true"
+                 (change)="isShowEarlyVotingStationInformation = !isShowEarlyVotingStationInformation">
+          <label for="earlyVotingStationCheckbox">사전 투표소 정보 조회</label>
+        </li>
+        <li>
+          <input type="checkbox" id="electionDayVotingStationCheckbox"
+                 (change)="isShowElectionDayVotingDayStationInformation = !isShowElectionDayVotingDayStationInformation">
+          <label for="electionDayVotingStationCheckbox">선거일 투표소 정보 조회</label>
+        </li>
+      </ul>
+    </nav>
+    <form (submit)="onSearch($event)">
+      <div>
+        <select name="votingCode" [(ngModel)]="votingCode" (change)="onVotingChange($event)" #votingCodeElement size="5" style="width: 20rem;" class="select-height-fix" (mousedown)="onSelectClick($event)">
+          <option *ngFor="let code of votingCodes" [value]="code.sgId +'|'+code.sgTypecode">{{code.sgVotedate}}_{{code.sgName}}</option>
+        </select>
+        <button type="button" id="votingCodeBtn" (click)="onVotingCodeLoad($event)">선거 불러오기</button>
+        <button *ngFor="let page of votingPageList" type="button"
+                (click)="onVotingCodeGoToPage(page)"> {{page}}</button>
+      </div>
+      <div>
+        <!--      <select name="constituencyCode" [(ngModel)]="constituencyCode" (change)="onConstituencyChange($event)" #constituencyCodeElement>-->
+        <select name="constituencyCode" [(ngModel)]="constituencyCode" #constituencyCodeElement size="5" style="width: 20rem;" class="select-height-fix">
+          <option *ngFor="let code of constituencyCodes" [value]="code.sgId">{{code.sdName}}_{{getDisplayValue(code.wiwName)}}_{{code.sggName}}</option>
+        </select>
+        <button *ngFor="let page of constituencyPageList" type="button"
+                (click)="onConstituencyCodeGoToPage(page)"> {{page}}</button>
+      </div>
+
+      <br>
+      <button type="submit">검색</button>
+    </form>
+  </div>
+
+  <div class="result-container" *ngIf="isShowEarlyVotingStationInformation">
+    <h2>사전 투표소 정보</h2>
+    <app-early-voting-station [sgId]="sgId" [sdName]="sdName" [wiwName]="wiwName"></app-early-voting-station>
+  </div>
+
+  <div class="result-container" *ngIf="isShowElectionDayVotingDayStationInformation">
+    <h2>선거일 투표소 정보</h2>
+    <app-election-day-voting-station [sgId]="sgId" [sdName]="sdName"></app-election-day-voting-station>
+  </div>
+</div>
+
+<footer class="footer apple-look">
+  데이터 출처: <a href="https://www.data.go.kr/" target="_blank" rel="noopener noreferrer">공공데이터 포털</a> | 만든 사람 &copy; 2023
+  <a href="https://github.com/kennyroh/southkoreaelectionvotingstation.github.io" rel="noopener noreferrer">Kenny Roh.</a>
+</footer>

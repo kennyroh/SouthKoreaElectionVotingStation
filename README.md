@@ -1,4 +1,7 @@
-# ConstituencyInfo
+# South Korea Election Voting station Information
+대한민국 선거 투표소 검색
+link: https://kennyroh.github.io/southkoreaelectionvotingstation-page
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
 
